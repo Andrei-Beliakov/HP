@@ -31,6 +31,7 @@
 }
 
 img {
+  display: block;
   object-fit: cover;
   object-position: top;
   height: 350px;
