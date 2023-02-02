@@ -8,14 +8,18 @@ function createCard(obj) {
   const newCard = document.createElement("div");
   newCard.className = "cards__item";
   newCard.innerHTML = `
-  <img src="${obj.image}" />
-  <p class="item__title">${obj.name}</p>
+  <img src="${obj.image}" />`;
+
+  const text = document.createElement("div");
+  text.className = "item__text";
+  text.innerHTML = `  <p class="item__title">${obj.name}</p>
   <p class="item__data">Actor: ${obj.actor}</p>
   <p class="item__data">Gender: ${obj.gender}</p>
   <p class="item__data">House: ${obj.house}</p>
   <p class="item__data">Wand core: ${obj.wand.core}</p>
   <p class="item__data">Alive: ${obj.alive ? "yes" : "no"}</p>`;
-
+  console.log(text);
+  newCard.append(text);
   return newCard;
 }
 
@@ -37,6 +41,6 @@ function selectSearchFunction(event) {
     .filter((elem) => elem.house.trim().toLowerCase().includes(value))
     .forEach((elem) => wrap.append(createCard(elem)));
 }
-selectSearch.addEventListener("input", selectSearchFunction);
+selectSearch.addEventListener("change", selectSearchFunction);
 
 data.forEach((card) => wrap.append(createCard(card)));
