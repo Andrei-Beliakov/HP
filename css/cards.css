@@ -1,0 +1,37 @@
+.cards__wrapper {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 40px 0 40px;
+  gap: 20px 20px;
+}
+.cards__item {
+  width: 334px;
+  /* min-height: 409px; */
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.item__title {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.item__text {
+  padding: 24px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+img {
+  object-fit: cover;
+  object-position: top;
+  height: 350px;
+}
