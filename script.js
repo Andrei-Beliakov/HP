@@ -22,29 +22,28 @@ function createCard(obj) {
   return newCard;
 }
 
-//ВЫЗОВ ФУНКЦИИ ОТРИСОВКИ
-selectArr.forEach((card) => {
-  wrap.append(createCard(card));
-});
-
-//ПОИСК ПО INPUT
-function inputSearchFunction(event) {
+//ФУНКЦИЯ ОТРИСОВКИ ПО РЕЗУЛЬТАТУ ДВУХ ПОИСКОВ
+function callCreateCard(selectArr) {
   wrap.innerHTML = "";
-  let value = event.target.value.trim().toLowerCase();
-  selectArr
-    .filter((elem) => elem.name.trim().toLowerCase().includes(value))
-    .forEach((elem) => wrap.append(createCard(elem)));
+  selectArr.forEach((card) => {
+    wrap.append(createCard(card));
+  });
 }
-inputSearch.addEventListener("input", inputSearchFunction);
 
-//ПОИСК ПО SELECT
-function selectSearchFunction(event) {
-  wrap.innerHTML = "";
-  let value = event.target.value.trim().toLowerCase();
+//ПОИСК ПО SELECT , ЗАТЕМ ПО INPUT И ВЫЗОВ ОТРИСОВКИ
+function allSearchFunction(event) {
+  let valueInput = inputSearch.value.trim().toLowerCase();
+  let valueSelect = selectSearch.value.trim().toLowerCase();
   selectArr = data.filter((elem) =>
-    elem.house.trim().toLowerCase().includes(value)
+    elem.house.trim().toLowerCase().includes(valueSelect)
   );
-  console.log(selectArr);
-  selectArr.forEach((elem) => wrap.append(createCard(elem)));
+  selectArr = selectArr.filter((elem) =>
+    elem.name.trim().toLowerCase().includes(valueInput)
+  );
+
+  callCreateCard(selectArr);
 }
-selectSearch.addEventListener("change", selectSearchFunction);
+inputSearch.addEventListener("input", allSearchFunction);
+selectSearch.addEventListener("change", allSearchFunction);
+
+callCreateCard(selectArr);
