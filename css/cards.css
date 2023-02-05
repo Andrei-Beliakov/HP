@@ -36,3 +36,15 @@ img {
   object-position: top;
   height: 350px;
 }
+
+@media (max-width: 767px) {
+  .cards__wrapper {
+    flex-direction: column;
+  }
+  .cards__item {
+    margin: 0 auto;
+  }
+  .container {
+    width: 85%;
+  }
+}

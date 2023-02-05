@@ -63,3 +63,26 @@ span {
   margin-bottom: 3px;
   font-weight: 400;
 }
+
+@media (max-width: 767px) {
+  .header__form {
+    flex-direction: column;
+  }
+  .form__input {
+    width: 100%;
+  }
+  .select {
+    width: 100%;
+  }
+  .header__title {
+    font-size: 52px;
+    line-height: 63px;
+    margin-bottom: 14px;
+  }
+
+  .header__subtitle {
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 28px;
+  }
+}
