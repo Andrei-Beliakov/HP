@@ -1,4 +1,6 @@
-import { data } from "./data.js";
+// import { data } from "./data.js";
+const response = await fetch("https://hp-api.onrender.com/api/characters");
+const data = await response.json();
 
 const wrap = document.querySelector(".cards__wrapper");
 const inputSearch = document.querySelector(".form__input");
@@ -9,7 +11,9 @@ let selectArr = data;
 function createCard(obj) {
   const newCard = document.createElement("div");
   newCard.className = "cards__item";
-  newCard.innerHTML = `<img src="${obj.image}" />`;
+  newCard.innerHTML = `<img src="${
+    obj.image ? obj.image : "./images/empty_img.png"
+  }" />`;
   const text = document.createElement("div");
   text.className = "item__text";
   text.innerHTML = `<p class="item__title">${obj.name}</p>
